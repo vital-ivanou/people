@@ -1,8 +1,6 @@
 package com.vital.people.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.Column;
@@ -14,10 +12,8 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "Human")
-@AllArgsConstructor
 @NoArgsConstructor
-@Builder
-@Getter
+@Data
 public class HumanEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

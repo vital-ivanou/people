@@ -1,14 +1,10 @@
 package com.vital.people.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Getter
-@Builder
 @NoArgsConstructor
-@AllArgsConstructor
+@Data
 public class Human {
     private Long id;
     private String name;

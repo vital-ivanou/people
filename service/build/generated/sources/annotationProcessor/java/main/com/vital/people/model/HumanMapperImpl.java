@@ -1,13 +1,12 @@
 package com.vital.people.model;
 
-import com.vital.people.model.Human.HumanBuilder;
-import javax.annotation.processing.Generated;
+import javax.annotation.Generated;
 import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2020-04-27T21:57:23+0300",
-    comments = "version: 1.3.1.Final, compiler: javac, environment: Java 11.0.6 (JetBrains s.r.o)"
+    date = "2020-04-29T18:19:11+0300",
+    comments = "version: 1.3.1.Final, compiler: javac, environment: Java 1.8.0_241 (Oracle Corporation)"
 )
 @Component
 public class HumanMapperImpl implements HumanMapper {
@@ -20,6 +19,10 @@ public class HumanMapperImpl implements HumanMapper {
 
         HumanEntity humanEntity = new HumanEntity();
 
+        humanEntity.setId( human.getId() );
+        humanEntity.setName( human.getName() );
+        humanEntity.setAge( human.getAge() );
+
         return humanEntity;
     }
 
@@ -29,12 +32,12 @@ public class HumanMapperImpl implements HumanMapper {
             return null;
         }
 
-        HumanBuilder human1 = Human.builder();
+        Human human1 = new Human();
 
-        human1.id( human.getId() );
-        human1.name( human.getName() );
-        human1.age( human.getAge() );
+        human1.setId( human.getId() );
+        human1.setName( human.getName() );
+        human1.setAge( human.getAge() );
 
-        return human1.build();
+        return human1;
     }
 }
