@@ -1,0 +1,14 @@
+sudo: required
+language: java
+jdk: oraclejdk8
+
+services:
+  - docker
+
+script:
+  - ./gradlew clean build
+
+after_success:
+  - docker login -u $DOCKER_ID -p $DOCKER_PASSWORD
+  - docker build -t vivanou/multi-service ./service
+  - docker build -t vivanou/multi-nginx ./nginx
