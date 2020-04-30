@@ -9,7 +9,7 @@ script:
   - ./gradlew clean build
 
 after_success:
-  - docker login -u $DOCKER_ID -p $DOCKER_PASSWORD
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   - docker build -t vivanou/multi-service ./service
   - docker build -t vivanou/multi-nginx ./nginx
   - docker push vivanou/multi-service
