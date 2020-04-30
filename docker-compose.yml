@@ -2,8 +2,6 @@ version: "3.7"
 services:
   app:
     build: ./service
-    ports:
-    - 8080:8080
     environment:
       - DB_HOST=db
       - DB_PORT=3306
@@ -23,5 +21,11 @@ services:
       - MYSQL_DATABASE=people
       - MYSQL_USER=admin
       - MYSQL_PASSWORD=admin
+  nginx:
+    build: ./nginx
+    depends_on:
+      - app
+    ports:
+    - 8080:80
     
       
