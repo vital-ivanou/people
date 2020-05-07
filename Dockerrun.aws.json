@@ -6,8 +6,18 @@
       "image": "vivanou/multi-service",
       "hostname": "app",
       "essential": false,
-      "memory": 128,
-      "links": ["cache", "db"]
+      "memory": 256,
+      "links": ["cache", "db"],
+      "dependsOn": [
+        {
+          "containerName": "db",
+          "condition": "HEALTHY"
+        },
+        {
+          "containerName": "cache",
+          "condition": "HEALTHY"
+        }
+      ]
     },
     {
       "name": "cache",
@@ -21,7 +31,7 @@
       "image": "mysql:5.7",
       "hostname": "db",
       "essential": false,
-      "memory": 128
+      "memory": 256
     },
     {
       "name": "nginx",
@@ -35,7 +45,13 @@
         }
       ],
       "memory": 128,
-      "links": ["app"]
+      "links": ["app"],
+      "dependsOn": [
+        {
+          "containerName": "app",
+          "condition": "HEALTHY"
+        }
+      ]
     }
   ]
 }
