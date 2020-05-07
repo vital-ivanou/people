@@ -6,19 +6,22 @@
       "image": "vivanou/multi-service",
       "hostname": "app",
       "essential": false,
+      "memory": 128,
       "links": ["cache", "db"]
     },
     {
       "name": "cache",
       "image": "redis:latest",
       "hostname": "cache",
-      "essential": false
+      "essential": false,
+      "memory": 128
     },
     {
       "name": "db",
       "image": "mysql:5.7",
       "hostname": "db",
-      "essential": false
+      "essential": false,
+      "memory": 128
     },
     {
       "name": "nginx",
@@ -31,6 +34,7 @@
           "hostPort": 80
         }
       ],
+      "memory": 128,
       "links": ["app"]
     }
   ]
