@@ -18,10 +18,10 @@ after_success:
 deploy: 
   provider: elasticbeanstalk
   region: eu-central-1
-  app: test
-  env: Test-env
+  app: people
+  env: People-env
   bucket_name: elasticbeanstalk-eu-central-1-573032386643
-  bucket_path: test
+  bucket_path: people
   on:
     branch: master
   access_key_id: $AWS_ACCESS_KEY

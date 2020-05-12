@@ -6,31 +6,6 @@
       "image": "vivanou/multi-service",
       "hostname": "app",
       "essential": false,
-      "memory": 256,
-      "links": ["cache", "db"],
-      "dependsOn": [
-        {
-          "containerName": "db",
-          "condition": "SUCCESS"
-        },
-        {
-          "containerName": "cache",
-          "condition": "SUCCESS"
-        }
-      ]
-    },
-    {
-      "name": "cache",
-      "image": "redis:latest",
-      "hostname": "cache",
-      "essential": false,
-      "memory": 128
-    },
-    {
-      "name": "db",
-      "image": "mysql:5.7",
-      "hostname": "db",
-      "essential": false,
       "memory": 256
     },
     {
